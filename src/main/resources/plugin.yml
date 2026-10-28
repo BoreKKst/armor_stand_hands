@@ -1,0 +1,14 @@
+name: ArmsHands
+version: 1.0.0
+main: com.borekkst.armshands.ArmsHands
+api-version: '1.20'
+author: BoreKKst
+description: Ultimate Armor Stand Animation Plugin
+commands:
+  armshands:
+    description: Главная команда ArmsHands
+    permission: armshands.admin
+    aliases: [ah]
+permissions:
+  armshands.admin:
+    default: op

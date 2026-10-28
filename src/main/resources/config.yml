@@ -1,0 +1,8 @@
+settings:
+  prefix: "&8[&4ArmsHands&8] &7"
+  enable-sqlite-database: true
+
+messages:
+  no-permission: "&cУ вас нет прав!"
+  reloaded: "&aКонфигурация перезагружена!"
+  stand-toggled: "&eСостояние рук стойки изменено!"
