@@ -1,0 +1,4 @@
+name: armor_stand_hands
+version: 1.0
+main: com.voidpulse.hands.ArmorStandHands
+api-version: '26.3'
