@@ -6,6 +6,7 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
@@ -14,6 +15,15 @@ public class ArmorStandListener implements Listener {
 
     public ArmorStandListener(ArmsHands plugin) {
         this.plugin = plugin;
+    }
+
+    // Делаем так, чтобы абсолютно все новые стойки сразу спавнились с руками!
+    @EventHandler
+    public void onEntitySpawn(EntitySpawnEvent event) {
+        if (event.getEntity() instanceof ArmorStand) {
+            ArmorStand stand = (ArmorStand) event.getEntity();
+            stand.setArms(true);
+        }
     }
 
     @EventHandler
