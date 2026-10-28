@@ -1,6 +1,5 @@
 package com.borekkst.armshands;
 
-import org.bukkit.Particle;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.EulerAngle;
@@ -28,8 +27,6 @@ public class AnimationManager {
 
                 stand.setRightArmPose(new EulerAngle(Math.toRadians(rightArmAngle), Math.toRadians(10), 0));
                 stand.setLeftArmPose(new EulerAngle(Math.toRadians(-leftArmAngle), Math.toRadians(-10), 0));
-
-                stand.getWorld().spawnParticle(Particle.HAPPY_VILLAGER, stand.getLocation().add(0, 1.2, 0), 1, 0.2, 0.2, 0.2, 0.05);
 
                 tick += 0.15;
             }
