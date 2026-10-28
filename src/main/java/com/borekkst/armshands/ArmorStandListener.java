@@ -12,17 +12,18 @@ import org.bukkit.inventory.EquipmentSlot;
 
 public class ArmorStandListener implements Listener {
     private final ArmsHands plugin;
+    private final AnimationManager animationManager;
 
     public ArmorStandListener(ArmsHands plugin) {
         this.plugin = plugin;
+        this.animationManager = new AnimationManager(plugin);
     }
 
-    // Делаем так, чтобы абсолютно все новые стойки сразу спавнились с руками!
     @EventHandler
     public void onEntitySpawn(EntitySpawnEvent event) {
         if (event.getEntity() instanceof ArmorStand) {
             ArmorStand stand = (ArmorStand) event.getEntity();
-            stand.setArms(true);
+            stand.setArms(true); // Всегда с руками по умолчанию
         }
     }
 
@@ -36,16 +37,13 @@ public class ArmorStandListener implements Listener {
 
         if (player.isSneaking()) {
             event.setCancelled(true);
-            boolean hasArms = stand.hasArms();
-            stand.setArms(!hasArms);
+            
+            // Включаем руки и запускаем Bedrock-анимацию движения рук
+            stand.setArms(true);
+            animationManager.playBedrockArmsAnimation(stand);
 
-            if (!hasArms) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.prefix") + plugin.getConfig().getString("messages.stand-toggled")));
-                player.playSound(stand.getLocation(), Sound.ENTITY_ARMOR_STAND_PLACE, 1.0f, 1.2f);
-            } else {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.prefix") + "&7Руки стойки скрыты."));
-                player.playSound(stand.getLocation(), Sound.ENTITY_ITEM_FRAME_REMOVE_ITEM, 1.0f, 0.8f);
-            }
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("messages.prefix") + "&aАктивирована анимация рук в стиле Bedrock!"));
+            player.playSound(stand.getLocation(), Sound.ENTITY_ARMOR_STAND_PLACE, 1.0f, 1.2f);
         }
     }
 }
