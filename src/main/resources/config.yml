@@ -1,25 +1,14 @@
-# ==========================================================
-#   ____                  _   _                      _      
-#  / ___|  ___ _ ____   _(_) | |__   __ _ _ __    __| |___  
-#  \___ \ / _ \ '_ \ \ / / | | '_ \ / _` | '_ \  / _` / __| 
-#   ___) |  __/ | | \ V /| | | | | | (_| | | | || (_| \__ \ 
-#  |____/ \___|_| |_|\_/ |_| |_| |_|\__,_|_| |_| \__,_|___/ 
-#                                                           
-#        Plugin: armor_stand_hands (Bedrock Edition)
-#        Author: VoidPulse & BoreKKst
-# ==========================================================
+settings:
+  prefix: "&8[&4ArmsHands&8] &7"
+  enable-sqlite-database: true
+  enable-internal-api: true
+  api-port: 8080
 
-plugin-settings:
-  name: "armor_stand_hands"
-  version: "1.0"
+animations:
+  default-speed-ticks: 10
+  particle-effects-enabled: true
 
-features:
-  enable-hands-customization: true
-  enable-bedrock-animations: true
-  enable-redstone-control: true
-  enable-custom-armor-sounds: true
-
-animation-settings:
-  speed: 0.35
-  amplitude: 1.25
-  duration-ticks: 30
+messages:
+  no-permission: "&cУ вас нет прав для выполнения этой команды!"
+  reloaded: "&aКонфигурация успешно перезагружена!"
+  stand-toggled: "&eСостояние рук стойки изменено!"

@@ -1,4 +1,14 @@
-name: armor_stand_hands
-version: 1.0
-main: com.voidpulse.hands.ArmorStandHands
-api-version: '26.3'
+name: ArmsHands
+version: 1.0.0
+main: com.borekkst.armshands.ArmsHands
+api-version: '1.21'
+author: BoreKKst
+description: Ultimate Armor Stand Animation, SQLite & API Plugin
+commands:
+  armshands:
+    description: Главная команда ArmsHands
+    permission: armshands.admin
+    aliases: [ah]
+permissions:
+  armshands.admin:
+    default: op
